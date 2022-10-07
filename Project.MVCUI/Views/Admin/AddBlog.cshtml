@@ -1,0 +1,83 @@
+﻿@model BlogVM
+
+@{
+    ViewBag.Title = "AddBlog";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<style>
+    .genislik {
+        width: 300px;
+    }
+</style>
+
+<br />
+@using (Html.BeginForm())
+{
+    <div class="row">
+        <div class="col-sm-12">
+            <section class="panel">
+                <header class="panel-heading">
+                  Yeni Blog Ekleme 
+                </header>
+
+                <div class="panel-body">
+
+                    <div class="form-group">
+                        <label class="col-sm-2">Blog Baslıgı</label>
+                        <div class="col-sm-10">
+                            @Html.TextBoxFor(x => x.Blog.Title, new { @class = "form-control genislik" })
+                        </div>
+                    </div>
+
+                    <br /> <br />
+
+
+                    <div class="form-group">
+                        <label class="col-sm-2">Acıklama</label>
+                        <div class="col-sm-10">
+                            @Html.TextAreaFor(x => x.Blog.Description, new { @class = "form-control genislik" })
+                        </div>
+                    </div>
+
+                    <br /> <br /><br />
+
+                    <div class="form-group">
+                        <label class="col-sm-2">Blog Image</label>
+                        <div class="col-sm-10">
+                            @Html.TextBoxFor(x => x.Blog.BlogImage, new { @class = "form-control genislik" })
+                        </div>
+                    </div>
+
+                    <br /> <br />
+                    <div class="form-group">
+                        <label class="col-sm-2">Tarih</label>
+                        <div class="col-sm-10">
+                            @Html.TextBoxFor(x => x.Blog.CreatedDate, new { @class = "form-control genislik" })
+                        </div>
+                    </div>
+
+                    <br /> <br />
+
+                    <div class="form-group">
+                        <label class="col-sm-2">İşlem : </label>
+                        <div class="col-sm-10">
+                            <button class="btn btn-primary">Ekle</button>
+                        </div>
+                    </div>
+
+
+
+
+
+
+
+
+                </div>
+
+
+            </section>
+        </div>
+    </div>
+}
+

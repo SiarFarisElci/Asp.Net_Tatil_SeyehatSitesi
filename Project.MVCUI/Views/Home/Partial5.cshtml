@@ -1,0 +1,16 @@
+﻿@model HomeVM
+
+<div class="box1-left">
+    @foreach (Blog item in Model.Blogs)
+    {
+
+
+    <div class="bot-img">
+        <a href="/Blog/BlogDetay/@item.ID">  <img src="@item.BlogImage" alt="" /> </a>
+    </div>
+    <div class="bot-desc1">
+        <p>@item.Description.Substring(0,60)</p>
+    </div>
+    <div class="clear"></div>
+    }
+</div>

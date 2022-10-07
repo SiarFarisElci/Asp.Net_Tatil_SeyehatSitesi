@@ -1,0 +1,48 @@
+﻿
+@model BlogVM
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>Blog Listesi</h2>
+
+<br />
+<header class="panel-heading">
+    @Html.ActionLink("Blog ekle", "AddBlog", "Admin", null, new { @class = "btn btn-primary" })
+</header>
+
+<table class="table table-hover">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Title</th>
+            <th>Tarih</th>
+            <th>Status</th>
+            <th class="hidden-phone">Sil</th>
+            <th class="hidden-phone">Güncelle</th>
+            <th class="hidden-phone">Detaylar</th>
+
+        </tr>
+    </thead>
+    <tbody>
+
+
+        @foreach (Blog item in Model.Blogs)
+        {
+            <tr>
+                <td>
+                    @item.ID
+                </td>
+                <td class="hidden-phone">@item.Title</td>
+                <td class="hidden-phone">@item.CreatedDate.ToShortDateString()</td>
+                <td class="center hidden-phone">@item.Status</td>
+                <td class="center hidden-phone"> @Html.ActionLink("Sil", "DeleteBlog", new { id = item.ID }, new { @class = "btn btn-danger" })  </td>
+                <td class="center hidden-phone">  @Html.ActionLink("Güncelle", "UpdateBlog", new { id = item.ID }, new { @class = "btn btn-warning" })  </td>
+                <td class="center hidden-phone">  @Html.ActionLink("Detay", "BlogDetay" , "Blog", new { id = item.ID }, new { @class = "btn btn-default" })  </td>
+            </tr>
+        }
+
+    </tbody>
+</table>

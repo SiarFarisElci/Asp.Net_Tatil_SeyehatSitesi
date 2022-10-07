@@ -1,0 +1,21 @@
+﻿@model HomeVM
+
+<div class="padding1">
+    <h4>En Begendiğim Yerler</h4>
+    <div class="box-left">
+        @foreach (Blog item in Model.Blogs)
+        {
+
+
+        <div class="bot-img">
+          <a href="/Blog/BlogDetay/@item.ID">  <img src="@item.BlogImage" alt="" /> </a>
+        </div>
+        <div class="bot-desc">
+            <p>@item.Description.Substring(0,60) </p>
+        </div>
+        <div class="clear"></div>
+     
+        }
+    </div>
+   @Html.Action("Partial5" , "Home")
+</div>

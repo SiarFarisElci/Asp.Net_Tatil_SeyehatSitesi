@@ -1,0 +1,57 @@
+﻿@model CommentVM
+
+@{
+    ViewBag.Title = "YorumListesi";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>YorumListesi</h2>
+
+<br />
+
+<table class="table table-hover">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Kullanıcı Adi</th>
+            <th>Mail</th>
+            <th>Yorum</th>
+            <th>Blog</th>
+            <th>Status</th>
+            <th class="hidden-phone">Sil</th>
+            <th class="hidden-phone">Güncelle</th>
+      
+
+        </tr>
+    </thead>
+    <tbody>
+
+
+        @foreach (Comment item in Model.Comments)
+        {
+            <tr>
+                <td>
+                    @item.ID
+                </td>
+                <td class="hidden-phone">@item.KullaniciAdi</td>
+                <td class="hidden-phone">@item.Mail</td>
+                <td class="hidden-phone">@item.Yorum</td>
+                @if (item.Blog == null)
+                {
+                    <td>Kategorisi Belirtilmemiş</td>
+                }
+                else
+                {
+                    <td>@item.Blog.Title</td>
+                }
+                <td>
+
+                <td class="center hidden-phone">@item.Status</td>
+                <td class="center hidden-phone"> @Html.ActionLink("Sil", "DeleteYorum", new { id = item.ID }, new { @class = "btn btn-danger" })  </td>
+                <td class="center hidden-phone">  @Html.ActionLink("Güncelle", "UpdateYorum", new { id = item.ID }, new { @class = "btn btn-warning" })  </td>
+
+            </tr>
+        }
+
+    </tbody>
+</table>

@@ -1,0 +1,78 @@
+﻿@model BlogVM
+
+
+@{
+    ViewBag.Title = "UpdateBlog";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<style>
+    .genislik {
+        width: 300px;
+    }
+</style>
+
+@using (Html.BeginForm())
+{
+    @Html.HiddenFor(x => x.Blog.ID)
+    <div class="row">
+        <div class="col-sm-12">
+            <section class="panel">
+                <header class="panel-heading">
+                    Kategori Ekleme Sayfası
+                </header>
+
+                <div class="panel-body">
+
+                    <div class="form-group">
+                        <label class="col-sm-2">Blog Baslıgı</label>
+                        <div class="col-sm-10">
+                            @Html.TextBoxFor(x => x.Blog.Title, new { @class = "form-control genislik" })
+                        </div>
+                    </div>
+
+                    <br /> <br />
+
+
+                    <div class="form-group">
+                        <label class="col-sm-2">Acıklama</label>
+                        <div class="col-sm-10">
+                            @Html.TextAreaFor(x => x.Blog.Description, new { @class = "form-control genislik" })
+                        </div>
+                    </div>
+
+                    <br /> <br />
+
+                    <div class="form-group">
+                        <label class="col-sm-2">Gorsel</label>
+                        <div class="col-sm-10">
+                            @Html.TextBoxFor(x => x.Blog.BlogImage, new { @class = "form-control genislik" })
+                        </div>
+                    </div>
+
+                    <br /> <br />
+               
+
+                    <div class="form-group">
+                        <label class="col-sm-2">İşlem : </label>
+                        <div class="col-sm-10">
+                            <button class="btn btn-primary">Güncelle</button>
+                        </div>
+                    </div>
+
+
+
+
+
+
+
+
+                </div>
+
+
+            </section>
+        </div>
+    </div>
+}
+
+

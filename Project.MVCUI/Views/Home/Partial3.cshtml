@@ -1,0 +1,17 @@
+﻿@model HomeVM
+
+<div class="padding">
+    <h4>Bu Haftanın TOP 10 Blogu</h4>
+    @{ int i = 0;}
+<ul class="list list-pad">
+    @foreach (Blog item in Model.Blogs)
+    {
+
+
+        <li class="list-bg"><span>@{ i++;} @i.</span><a href="/Blog/BlogDetay/@item.ID">@item.Title</a></li>
+
+
+    }
+</ul>
+        <a href="/Blog/Index" class="link1">Tum Bloları Gor</a>
+    </div>

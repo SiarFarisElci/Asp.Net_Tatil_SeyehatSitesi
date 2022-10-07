@@ -1,0 +1,86 @@
+﻿@model CommentVM
+
+@{
+    ViewBag.Title = "UpdateYorum";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>UpdateYorum</h2>
+
+
+<style>
+    .genislik {
+        width: 300px;
+    }
+</style>
+
+@using (Html.BeginForm())
+{
+    @Html.HiddenFor(x => x.Comment.ID)
+    <div class="row">
+        <div class="col-sm-12">
+            <section class="panel">
+                <header class="panel-heading">
+                    Kategori Ekleme Sayfası
+                </header>
+
+                <div class="panel-body">
+
+                    <div class="form-group">
+                        <label class="col-sm-2">Kullanıcı Adi</label>
+                        <div class="col-sm-10">
+                            @Html.TextBoxFor(x => x.Comment.KullaniciAdi, new { @class = "form-control genislik" })
+                        </div>
+                    </div>
+
+                    <br /> <br />
+
+
+                    <div class="form-group">
+                        <label class="col-sm-2">Mail</label>
+                        <div class="col-sm-10">
+                            @Html.TextBoxFor(x => x.Comment.Mail, new { @class = "form-control genislik" })
+                        </div>
+                    </div>
+
+                    <br /> <br />
+
+                    <div class="form-group">
+                        <label class="col-sm-2">Blog Name</label>
+                        <div class="col-sm-10">
+                            @Html.TextAreaFor(x => x.Comment.Yorum, new { @class = "form-control genislik" })
+                        </div>
+                    </div>
+
+                    <br /> <br />
+
+                    <div class="form-group">
+                        <label class="col-sm-2">Kategori</label>
+                        <div class="col-sm-10">
+                            @Html.DropDownListFor(x => x.Comment.BlogID, new SelectList(Model.Blogs, "ID", "Title"), "Lutfen seciniz", new { @class = "form-control genislik" })
+                        </div>
+                    </div>
+
+                    <br /> <br />
+    
+                    <div class="form-group">
+                        <label class="col-sm-2">İşlem : </label>
+                        <div class="col-sm-10">
+                            <button class="btn btn-primary">Güncelle</button>
+                        </div>
+                    </div>
+
+
+
+
+
+
+
+
+                </div>
+
+
+            </section>
+        </div>
+    </div>
+}
